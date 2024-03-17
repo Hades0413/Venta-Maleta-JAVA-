@@ -1,0 +1,102 @@
+package proyecto;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.UIManager;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+public class DialogoGenerarReportes extends JDialog {
+	private JLabel lblTipodereporte;
+	private JComboBox<String> cboTipodereporte;
+	private JButton btnCerrar;
+	private JScrollPane scpBarras;
+	private JTextArea txtS;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					DialogoGenerarReportes dialog = new DialogoGenerarReportes();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public DialogoGenerarReportes() {
+		setModal(true);
+		setResizable(false);
+		setTitle("Generar reportes");
+		setBounds(100, 100, 539, 354);
+		getContentPane().setLayout(null);
+		
+		lblTipodereporte = new JLabel("Tipo de reporte");
+		lblTipodereporte.setBounds(10, 11, 74, 14);
+		getContentPane().add(lblTipodereporte);
+		
+		cboTipodereporte = new JComboBox<String>();
+		cboTipodereporte.setModel(new DefaultComboBoxModel<String>(new String[] {"Ventas por modelo", "Raz\u00F3n de precios en relaci\u00F3n al precio mayor", "Estad\u00EDstica sobre la cantidad \u00F3ptima", "Estad\u00EDstica sobre el precio"}));
+		cboTipodereporte.setBounds(94, 7, 260, 22);
+		getContentPane().add(cboTipodereporte);
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setBounds(425, 7, 89, 23);
+		getContentPane().add(btnCerrar);
+		
+		scpBarras = new JScrollPane();
+		scpBarras.setBounds(10, 43, 504, 264);
+		getContentPane().add(scpBarras);
+		
+		txtS = new JTextArea();
+		scpBarras.setViewportView(txtS);
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
